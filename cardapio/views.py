@@ -315,12 +315,13 @@ def editcardapio(request,id_dia_cardapio):
 		f_dia = request.POST.get('dia')
 		f_mes = request.POST.get('mes')
 		data = f_dia + '/' + f_mes
-		
+		print data
 		c = get_object_or_404(Dia_Cardapio, pk=id_dia_cardapio)
 		if f_dia and f_mes:
-			c.data = data
+			c.dia = f_dia
+			c.mes = f_mes
 			c.save()
-		return redirect('/cardapios')
+			return redirect('/cardapios')
 	context = {'form': form}
 	return render(request,"editcardapio.html", context)
 
@@ -345,7 +346,7 @@ def prep_cardapio(request,id_dia_cardapio):
 
 	if request.method == 'POST' and 'add' in request.POST:
 		f_prep = request.POST.get('prep')
-		card = Cardapio_Prep(prep_id=f_prep, dia_id = id_dia_cardapio, r1=0,r2=0,r3_1=0,r3_2=0,r4=0,r5=0,r6=0,r7=0,r8=0,r9=0,r10=0)
+		card = Cardapio_Prep(prep_id=f_prep,dia_id=id_dia_cardapio,r1=0,r2=0,r3_1=0,r3_2=0,r4=0,r5=0,r6=0,r7=0,r8=0,r9=0,r10=0)
 		card.save()
 		return redirect('/prep_cardapio/' + id_dia_cardapio)
 
