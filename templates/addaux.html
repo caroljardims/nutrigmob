@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block body%}
+<div class="container">
+	<h3>Adicionar Auxiliar</h3>
+	<a href="/aux/" class="volta" ><button type="button" class="btn btn-default">Cancelar</button></a>
+	<br /><br />
+	<form action="/addaux/" method="post" role="form" class="col-sm-4">
+		{% csrf_token %}
+		{{form.management_form}}
+		<div class="form-group">
+			<label>Tipo</label>
+			<div class="radio">
+				<label><input type="radio" name="tipo" value="1"> Categoria de Alimentos </label>
+			</div>
+			<div class="radio">
+				<label><input type="radio" name="tipo" value="2"> Tipo de Preparo </label>
+			</div>
+			<div class="radio">
+				<label><input type="radio" name="tipo" value="3"> Cocção </label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Descrição</label>
+			<input type="text" class="form-control" name="desc" placeholder="Entre com a descrição" />
+		</div>
+
+	  <button type="submit" class="btn btn-info" value="Enviar">Enviar</button>
+	  </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+{% endblock %}

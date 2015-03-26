@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block body%}
+{% load static %}
+<div class="container-fluid">
+	<div class="container">
+			<h2>Auxiliares</h2>           
+			<a href="/addprepara/"><button type="button" class="btn btn-info">Adicionar</button></a>
+			<h3>Lista de Preparações</h3>
+		{% if p_list %}
+			{% for t in aux_list %}				
+				{% if t.tipo == 2 %}
+				<div class="thumbnail col-sm-3">
+					<h4>{{ t.desc }}</h4>
+					{% for a in p_list %}
+					{% if a.tipoPrep == t.desc %}
+					<ul class="list-group">
+					<li class="list-group-item">
+						<label><a href="/verprepara/{{ a.id }}"> {{ a.desc }}</a> </label>
+						<a href="/editprepara/{{ a.id }}"><img src="{% static "img/edit.png" %}" style="display:inline-block" /></a> 
+						<a href="/deleteprepara/{{ a.id }}"><img src="{% static "img/delete.png" %}" style="display:inline-block" /></a> 
+						<a href="/prep_alimentos/{{ a.id }}"><img src="{% static "img/add.png" %}" style="display:inline-block" /></a>
+					</li>
+					</ul>
+					{% endif %}
+				{% endfor %}
+				</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %} 
+	
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body%}
+<div class="container-fluid">
+	<div class="container">
+			<h2>Alimento</h2>
+			<a href="/editprepara/{{ p.id }}"><button type="button" class="btn btn-info">Editar</button></a>
+			<a href="/deleteprepara/{{ p.id }}"><button type="button" class="btn btn-danger">Deletar</button></a>
+			<a href="/prepara/"><button type="button" class="btn btn-default">Voltar</button></a>
+			<a href="/addprepara/"><button type="button" class="btn btn-info">Adicionar Novo</button></a>
+			<br /><br />
+			<div class="thumbnail col-sm-4">
+				<h3>{{ p.desc }}</h3>
+				<p><label>Tipo:</label> {{ p.tipoPrep }}</p>
+				<p><label>Cocção:</label> {{ p.coccao }}</p>
+				<p><label>In Natura: </label> 
+				{% if p.inNatura == 1 %}	
+				Sim
+				{% else %}
+				Não
+				{% endif %}</p>
+				<p><label>Enxofre: </label>
+				{% if p.enxofre == 1 %}	
+				Sim
+				{% else %}
+				Não
+				{% endif %}</p>
+				<p><label>Cor: </label> {{ p.cor }}</p>
+
+				{% if lista %}
+				<p><label>Alimentos: </label>
+					{% for i in lista %}
+						<br /> - {{ i }}  
+					{% endfor %}
+				{% endif %}
+				</p>
+			</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+{% endblock %}

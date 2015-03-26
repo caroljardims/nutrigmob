@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body%}
+<div class="container-fluid">
+	<div class="container">
+			<h2>Alimento</h2>
+			<a href="/editcardapio/{{ c.id }}"><button type="button" class="btn btn-info">Editar</button></a>
+			<a href="/deletecardapio/{{ c.id }}"><button type="button" class="btn btn-danger">Deletar</button></a>
+			<a href="/cardapios/"><button type="button" class="btn btn-default">Voltar</button></a>
+			<a href="/prep_cardapio/{{ c.id }}"><button type="button" class="btn btn-info">Adicionar Preparações</button></a>
+			<br /><br />
+			<div class="thumbnail col-sm-4">
+				<h3>Dia: {{ c.dia }}/{{ c.mes }}</h3>
+				{% if p_card %}
+					{% for p in p_card %}
+						<br />- {{ p.prep.desc }}
+					{% endfor %}
+				{% endif %}
+				
+			</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+{% endblock %}

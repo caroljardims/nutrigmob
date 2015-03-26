@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block body%}
+<div class="container">
+	<h3>Editar Auxiliar</h3>
+	<br /><br />
+	<form action="" method="post" role="form" class="col-sm-4">
+		{% csrf_token %}
+		{{form.management_form}}
+		<div class="form-group">
+			<label>Tipo</label>
+			<div class="radio">
+				<label>
+					{% if aux.tipo == 1 %}
+					<input type="radio" name="tipo" value="1" checked> Categoria de Alimentos 
+					{% else %}
+					<input type="radio" name="tipo" value="1"> Categoria de Alimentos 
+					{% endif %}
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					{% if aux.tipo == 2 %}
+					<input type="radio" name="tipo" value="2" checked> Tipo de Preparo
+					{% else %}
+					<input type="radio" name="tipo" value="2"> Tipo de Preparo
+					{% endif %}
+				 </label>
+			</div>
+			<div class="radio">
+				<label>
+					{% if aux.tipo == 3 %}
+					<input type="radio" name="tipo" value="3" checked> Cocção 
+					{% else %}
+					<input type="radio" name="tipo" value="3"> Cocção
+					{% endif %}
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Descrição</label>
+			<input type="text" class="form-control" name="desc" value="{{ aux.desc }}" />
+		</div>
+
+	  <button type="submit" class="btn btn-info" value="Editar">Editar</button>
+	  <a href="/deleteaux/{{ aux.id }}"><button type="button" class="btn btn-danger">Deletar</button></a>
+	  <a href="/aux/"><button type="button" class="btn btn-default">Cancelar</button></a>
+	  </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+{% endblock %}
