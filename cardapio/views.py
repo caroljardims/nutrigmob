@@ -294,7 +294,6 @@ def addcardapio(request):
 def vercardapio(request,id_dia_cardapio):
 	card = Cardapio_Prep.objects.all()
 	c = get_object_or_404(Dia_Cardapio, pk=id_dia_cardapio)
-	#regra1(c)
 	p_card = []
 	for p in card:
 		if p.dia.dia == c.dia and p.dia.mes == c.mes and p.dia.ano == c.ano:
