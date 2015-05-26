@@ -36,5 +36,4 @@ def regra1(c):
 	for i in cardapio:
 		if i.dia.id == c.dia.id:
 			lista.append(i)
-	for l in lista:
-		print l.dia.dia
+	Cardapio_Prep.objects.filter()
