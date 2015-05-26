@@ -30,10 +30,15 @@ from cardapio.models import *
  """
 
 def regra1(c):
-	cardapio = Cardapio_Prep.objects.all()
-	lista = []
-	#print str(c.dia.dia) + "/" + str(c.dia.mes)
-	for i in cardapio:
-		if i.dia.id == c.dia.id:
-			lista.append(i)
-	Cardapio_Prep.objects.filter()
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	
+	prepals = map(lambda ca: map(lambda pa: pa.alimento, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	als = []
+	for p in prepals:
+		#print(','.join(map(lambda a: a.desc, p)))
+		als += p
+	passou = len(set([x for x in als if als.count(x) > 2])) == 0
+	if passou:
+		c.r1 = 1
+		c.save()
+	#print(passou)

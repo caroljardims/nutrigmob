@@ -10,6 +10,7 @@ from django.forms.models import modelformset_factory
 from cardapio.models import *
 from cardapio.forms import *
 from cardapio.rules import *
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
     #############
     #           #
@@ -84,7 +85,17 @@ def editaux(request, id_aux):
 
 def alimentos(request):
 	al_list = Alimentos.objects.all().order_by('desc')
-	context = {'al_list':al_list}
+	paginator = Paginator(al_list, 10)
+
+	page = request.GET.get('page')
+
+	try:
+		alimentos = paginator.page(page)
+	except PageNotAnInteger:
+		alimentos = paginator.page(1)
+	except EmptyPage:
+		alimentos = paginator.page(paginator.num_pages)
+	context = {'al_list':alimentos}
 	return render_to_response('alimentos.html', context)
 
 def addalimento(request):
@@ -272,8 +283,11 @@ def cardapios(request):
 	card = Cardapio_Prep.objects.all()
 	mes = []
 	for i in range(0,12): mes.append(i+1)
+	exclude_days = []
 	for j in card: 
-		regra1(j)
+		if j.dia.id not in exclude_days:
+			regra1(j)
+			exclude_days.append(j.dia.id)
 	context = {'c_list':c_list,'mes':mes}
 	return render_to_response('cardapios.html', context)
 
