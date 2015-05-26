@@ -19,6 +19,22 @@
 			</ul>
 			{% endfor %}
 
+			<div class="pagination">
+			    <span class="step-links">
+			        {% if al_list.has_previous %}
+			            <a href="?page={{ al_list.previous_page_number }}">Anterior</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Página {{ al_list.number }} de {{ al_list.paginator.num_pages }}
+			        </span>
+
+			        {% if al_list.has_next %}
+			            <a href="?page={{ al_list.next_page_number }}">Próximo</a>
+			        {% endif %}
+			    </span>
+			</div>
+
 		{% endif %}
 	</div>
 </div>
