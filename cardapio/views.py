@@ -306,14 +306,12 @@ def addcardapio(request):
 
 
 def vercardapio(request,id_dia_cardapio):
-	card = Cardapio_Prep.objects.all()
 	c = get_object_or_404(Dia_Cardapio, pk=id_dia_cardapio)
-	p_card = []
-	for p in card:
-		if p.dia.dia == c.dia and p.dia.mes == c.mes and p.dia.ano == c.ano:
-			p_card.append(p)
-
-	context = {'p_card':p_card,'c':c}
+	card = Cardapio_Prep.objects.filter(dia__id = c.id)
+	item=None
+	if len(card) > 0:
+		item = card[0]
+	context = {'p_card':card,'c':c, 'item':item}
 	return render(request,"vercardapio.html",context)
 
 

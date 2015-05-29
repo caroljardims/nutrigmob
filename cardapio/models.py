@@ -37,7 +37,7 @@ class Dia_Cardapio(models.Model):
 	mes = models.IntegerField(2)
 	ano = models.IntegerField(2)
 	def __unicode__(self):
-		return self.data
+		return '%d/%d/%d' % (self.dia,self.mes,self.ano)
 
 class Cardapio_Prep(models.Model):
 	dia = models.ForeignKey(Dia_Cardapio)
@@ -54,4 +54,4 @@ class Cardapio_Prep(models.Model):
 	r9 = models.IntegerField(1,default=0)
 	r10 = models.IntegerField(1,default=0)
 	def __unicode__(self):
-		return self.dia.dia
+		return str(self.dia) + " " + str(self.r1)

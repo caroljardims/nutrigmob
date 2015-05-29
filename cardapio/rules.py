@@ -38,7 +38,11 @@ def regra1(c):
 		#print(','.join(map(lambda a: a.desc, p)))
 		als += p
 	passou = len(set([x for x in als if als.count(x) > 2])) == 0
-	if passou:
-		c.r1 = 1
-		c.save()
+	
+	for card in cardapios:
+		if passou:
+			card.r1 = 1
+		else:
+			card.r1 = 0
+		card.save()
 	#print(passou)

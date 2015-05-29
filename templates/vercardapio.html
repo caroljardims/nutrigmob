@@ -9,16 +9,26 @@
 			<a href="/cardapios/"><button type="button" class="btn btn-default">Voltar</button></a>
 			<a href="/prep_cardapio/{{ c.id }}"><button type="button" class="btn btn-info">Adicionar Preparações</button></a>
 			<br /><br />
+
 			<div class="thumbnail col-sm-4">
 				<h3>Dia: {{ c.dia }}/{{ c.mes }}</h3>
 				{% if p_card %}
 					{% for p in p_card %}
 						<br />- {{ p.prep.desc }}
 					{% endfor %}
-				{% endif %}
-				
-			</div>
+				<div> 
+					<br />
+					<h4>Qualidade Nota:</h4>
+					<ul> 
+						{% if item.r1 == 1 %}
+							<li>Não possui mais de um alimento repetido nas preparações.</li>
+						{% else %}
+							<li>Possui mais de um alimento repetido nas preparações.</li>
+						{% endif %}
 
+					</ul> <div>
+					{% endif %}
+			</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
