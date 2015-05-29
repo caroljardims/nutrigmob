@@ -287,6 +287,7 @@ def cardapios(request):
 	for j in card: 
 		if j.dia.id not in exclude_days:
 			regra1(j)
+			regra7(j)
 			exclude_days.append(j.dia.id)
 	context = {'c_list':c_list,'mes':mes}
 	return render_to_response('cardapios.html', context)

@@ -54,4 +54,4 @@ class Cardapio_Prep(models.Model):
 	r9 = models.IntegerField(1,default=0)
 	r10 = models.IntegerField(1,default=0)
 	def __unicode__(self):
-		return str(self.dia) + " " + str(self.r1)
+		return str(self.dia) + " " + str(self.r7)

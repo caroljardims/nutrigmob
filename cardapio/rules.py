@@ -46,3 +46,23 @@ def regra1(c):
 			card.r1 = 0
 		card.save()
 	#print(passou)
+
+"""
+
+ Regra 7: Preparação rica em sódio
+ > Verificar se preparação é rica em sódio
+
+ """
+
+def regra7(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+
+	ricoEmSodio = (map(lambda ca: ca.prep.sodio, cardapios)) 
+	passou = None
+	if 1 in ricoEmSodio:
+		passou = 0
+	else:
+		passou = 1
+	for card in cardapios:
+		card.r7 = passou
+		card.save()

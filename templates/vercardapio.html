@@ -26,7 +26,16 @@
 							<li>Possui mais de um alimento repetido nas preparações.</li>
 						{% endif %}
 
-					</ul> <div>
+					</ul> 
+					<ul> 
+						{% if item.r7 == 1 %}
+							<li>Não possui preparações ricas em sódio.</li>
+						{% else %}
+							<li>Possui pelo menos uma preparação rica em sódio.</li>
+						{% endif %}
+
+					</ul> 
+					<div>
 					{% endif %}
 			</div>
 </div>
