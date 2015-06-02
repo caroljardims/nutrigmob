@@ -286,8 +286,7 @@ def cardapios(request):
 	exclude_days = []
 	for j in card: 
 		if j.dia.id not in exclude_days:
-			regra1(j)
-			regra7(j)
+			regras(j)
 			exclude_days.append(j.dia.id)
 	context = {'c_list':c_list,'mes':mes}
 	return render_to_response('cardapios.html', context)
@@ -310,9 +309,11 @@ def vercardapio(request,id_dia_cardapio):
 	c = get_object_or_404(Dia_Cardapio, pk=id_dia_cardapio)
 	card = Cardapio_Prep.objects.filter(dia__id = c.id)
 	item=None
+	itens=0
 	if len(card) > 0:
 		item = card[0]
-	context = {'p_card':card,'c':c, 'item':item}
+		itens = item.r1 + item.r7 + item.r8
+	context = {'p_card':card,'c':c, 'item':item, 'nota':itens}
 	return render(request,"vercardapio.html",context)
 
 
