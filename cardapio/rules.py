@@ -66,3 +66,21 @@ def regra7(c):
 	for card in cardapios:
 		card.r7 = passou
 		card.save()
+
+def regra8(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+
+	ricoEmEnxofre = (map(lambda ca: ca.prep.enxofre, cardapios)) 
+	passou = None
+	if 1 in ricoEmEnxofre:
+		passou = 0
+	else:
+		passou = 1
+	for card in cardapios:
+		card.r8 = passou
+		card.save()
+
+def regras(c):
+	regra1(c)
+	regra7(c)
+	regra8(c)
