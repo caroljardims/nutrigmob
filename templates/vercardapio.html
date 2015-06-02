@@ -10,7 +10,7 @@
 			<a href="/prep_cardapio/{{ c.id }}"><button type="button" class="btn btn-info">Adicionar Preparações</button></a>
 			<br /><br />
 
-			<div class="thumbnail col-sm-4">
+			<div class="thumbnail col-sm-5">
 				<h3>Dia: {{ c.dia }}/{{ c.mes }}</h3>
 				{% if p_card %}
 					{% for p in p_card %}
@@ -32,6 +32,14 @@
 							<li>( + ) Não possui mais de uma preparação com cores repetidas.</li>
 						{% else %}
 							<li>( - ) Possui mais de uma preparação com cores repetidas.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
+						{% if item.r3 == 1 %}
+							<li>( + ) Não possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
+						{% else %}
+							<li>( - ) Possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
 						{% endif %}
 
 					</ul> 
