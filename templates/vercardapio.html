@@ -28,6 +28,14 @@
 
 					</ul> 
 					<ul> 
+						{% if item.r2 == 1 %}
+							<li>( + ) Não possui mais de uma preparação com cores repetidas.</li>
+						{% else %}
+							<li>( - ) Possui mais de uma preparação com cores repetidas.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
 						{% if item.r7 == 1 %}
 							<li>( + ) Não possui preparações ricas em sódio.</li>
 						{% else %}

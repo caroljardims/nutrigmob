@@ -47,6 +47,24 @@ def regra1(c):
 		card.save()
 	#print(passou)
 
+def regra2(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	
+	cores = (map(lambda ca: ca.prep.cor, cardapios)) 
+	aux = []
+	for p in cores:
+		#print(','.join(map(lambda a: a.desc, p)))
+		aux.append(p) 
+	
+	passou = len(set([x for x in aux if aux.count(x) > 2])) == 0
+	
+	for card in cardapios:
+		if passou:
+			card.r2 = 1
+		else:
+			card.r2 = 0
+		card.save()
+
 """
 
  Regra 7: Preparação rica em sódio
@@ -99,6 +117,7 @@ def regra10(c):
 
 def regras(c):
 	regra1(c)
+	regra2(c)
 	regra7(c)
 	regra8(c)
 	regra10(c)
