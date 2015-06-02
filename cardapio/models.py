@@ -19,7 +19,7 @@ class Prepara(models.Model):
 	inNatura = models.IntegerField(1)
 	enxofre = models.IntegerField(1)
 	sodio = models.IntegerField(1)
-	cor = models.CharField(max_length=10)
+	cor = models.IntegerField(1,default=1)
 	tipoPrep = models.CharField(max_length=40)
 	coccao = models.CharField(max_length=40)
 	def __unicode__(self):
