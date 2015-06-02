@@ -98,7 +98,7 @@ def regra8(c):
 		card.r8 = passou
 		card.save()
 
-<<<<<<< HEAD
+
 def regra4(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
 	possuiCarneGordurosa = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
@@ -111,8 +111,34 @@ def regra4(c):
 	for card in cardapios:
 		card.r4 = passou
 		card.save()
-	print(passou)
-=======
+	
+def regra5(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	possuiDoce = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	possuiDoce  = filter(lambda ca: "Doce" in ca, possuiDoce)
+	passou = len(possuiDoce) == 0
+	if passou:
+		passou = 1
+	else:
+		passou = 0
+	for card in cardapios:
+		card.r5 = passou
+		card.save()
+
+def regra6(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	possuiFritura = (map(lambda ca: ca.prep.coccao, cardapios)) 
+	possuiFritura  = filter(lambda ca: "Frito" in ca, possuiFritura)
+	passou = len(possuiFritura) == 0
+	if passou:
+		passou = 1
+	else:
+		passou = 0
+	for card in cardapios:
+		card.r6 = passou
+		card.save()
+
+
 def regra10(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
 	
@@ -129,17 +155,15 @@ def regra10(c):
 		else:
 			card.r10 = 0
 		card.save()
->>>>>>> 824120e24201177aea705411b9e95257f2fd22fa
+
 
 def regras(c):
 	regra1(c)
 	regra2(c)
 	regra7(c)
-<<<<<<< HEAD
 	regra4(c)
-	regra8(c)
-
-=======
+	regra5(c)
+	regra6(c)
 	regra8(c)
 	regra10(c)
->>>>>>> 824120e24201177aea705411b9e95257f2fd22fa
+	
