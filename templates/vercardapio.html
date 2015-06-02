@@ -18,7 +18,7 @@
 					{% endfor %}
 				<div> 
 					<br />
-					<h4>Qualidade Nota: {{ nota }}</h4>
+					<h4>Qualidade Nota: {{ nota }} </h4>
 					<ul> 
 						{% if item.r1 == 1 %}
 							<li>Não possui mais de um alimento repetido nas preparações.</li>
@@ -31,7 +31,7 @@
 						{% if item.r7 == 1 %}
 							<li>Não possui preparações ricas em sódio.</li>
 						{% else %}
-							<li>Possui pelo menos uma preparação rica em sódio.</li>
+							<li>Possui pelo menos uma preparação sulfurosa.</li>
 						{% endif %}
 
 					</ul> 
@@ -39,7 +39,7 @@
 						{% if item.r8 == 1 %}
 							<li>Não possui preparações ricas em enxofre.</li>
 						{% else %}
-							<li>Possui pelo menos uma preparação rica em enxofre.</li>
+							<li>Possui pelo menos uma preparação sulfurosa.</li>
 						{% endif %}
 
 					</ul> 
