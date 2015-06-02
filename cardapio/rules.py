@@ -65,6 +65,11 @@ def regra2(c):
 			card.r2 = 0
 		card.save()
 
+def regra3_1(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	
+	prepals = map(lambda ca: map(lambda pa: pa.alimento, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+
 def regra4(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
 	possuiCarneGordurosa = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
