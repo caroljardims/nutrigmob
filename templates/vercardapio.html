@@ -36,16 +36,24 @@
 
 					</ul> 
 					<ul> 
+						{% if item.r4 == 1 %}
+							<li>( + ) Não possui carne gordurosa.</li>
+						{% else %}
+							<li>( - ) Possui carne gordurosa.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
 						{% if item.r7 == 1 %}
 							<li>( + ) Não possui preparações ricas em sódio.</li>
 						{% else %}
-							<li>( - ) Possui pelo menos uma preparação sulfurosa.</li>
+							<li>( - ) Possui pelo menos uma preparação rica em sódio.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r8 == 1 %}
-							<li>( + ) Não possui preparações ricas em enxofre.</li>
+							<li>( + ) Não possui preparações sulfurosas.</li>
 						{% else %}
 							<li>( - ) Possui pelo menos uma preparação sulfurosa.</li>
 						{% endif %}
@@ -56,14 +64,6 @@
 							<li>( + ) Não possui duplicidade de cocção.</li>
 						{% else %}
 							<li>( - ) Possui duplicidade de cocção.</li>
-						{% endif %}
-
-					</ul> 
-					<ul> 
-						{% if item.r4 == 1 %}
-							<li>Não possui carne gordurosa.</li>
-						{% else %}
-							<li>Possui carne gordurosa.</li>
 						{% endif %}
 
 					</ul> 

@@ -65,6 +65,25 @@ def regra2(c):
 			card.r2 = 0
 		card.save()
 
+def regra3_1(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	
+	prepals = map(lambda ca: map(lambda pa: pa.alimento, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+
+def regra4(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	possuiCarneGordurosa = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	possuiCarneGordurosa  = filter(lambda ca: "Carne Gordurosa" in ca, possuiCarneGordurosa)
+	passou = len(possuiCarneGordurosa) == 0
+	if passou:
+		passou = 1
+	else:
+		passou = 0
+	for card in cardapios:
+		card.r4 = passou
+		card.save()
+	#print(passou)
+
 """
 
  Regra 7: Preparação rica em sódio
@@ -98,6 +117,7 @@ def regra8(c):
 		card.r8 = passou
 		card.save()
 
+<<<<<<< HEAD
 
 def regra4(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
@@ -139,6 +159,8 @@ def regra6(c):
 		card.save()
 
 
+=======
+>>>>>>> 98b569581042f8893429c34cec55fb730e87fbbe
 def regra10(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
 	
@@ -155,11 +177,15 @@ def regra10(c):
 		else:
 			card.r10 = 0
 		card.save()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 98b569581042f8893429c34cec55fb730e87fbbe
 
 def regras(c):
 	regra1(c)
 	regra2(c)
+<<<<<<< HEAD
 	regra7(c)
 	regra4(c)
 	regra5(c)
@@ -167,3 +193,10 @@ def regras(c):
 	regra8(c)
 	regra10(c)
 	
+=======
+	regra4(c)
+	regra7(c)
+	regra8(c)
+	regra10(c)
+
+>>>>>>> 98b569581042f8893429c34cec55fb730e87fbbe
