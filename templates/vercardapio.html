@@ -21,25 +21,33 @@
 					<h4>Qualidade Nota: {{ nota }} </h4>
 					<ul> 
 						{% if item.r1 == 1 %}
-							<li>Não possui mais de um alimento repetido nas preparações.</li>
+							<li>( + ) Não possui mais de um alimento repetido nas preparações.</li>
 						{% else %}
-							<li>Possui mais de um alimento repetido nas preparações.</li>
+							<li>( - ) Possui mais de um alimento repetido nas preparações.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r7 == 1 %}
-							<li>Não possui preparações ricas em sódio.</li>
+							<li>( + ) Não possui preparações ricas em sódio.</li>
 						{% else %}
-							<li>Possui pelo menos uma preparação sulfurosa.</li>
+							<li>( - ) Possui pelo menos uma preparação sulfurosa.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r8 == 1 %}
-							<li>Não possui preparações ricas em enxofre.</li>
+							<li>( + ) Não possui preparações ricas em enxofre.</li>
 						{% else %}
-							<li>Possui pelo menos uma preparação sulfurosa.</li>
+							<li>( - ) Possui pelo menos uma preparação sulfurosa.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
+						{% if item.r10 == 1 %}
+							<li>( + ) Não possui duplicidade de cocção.</li>
+						{% else %}
+							<li>( - ) Possui duplicidade de cocção.</li>
 						{% endif %}
 
 					</ul> 

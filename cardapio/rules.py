@@ -80,7 +80,25 @@ def regra8(c):
 		card.r8 = passou
 		card.save()
 
+def regra10(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	
+	cocs = (map(lambda ca: ca.prep.coccao, cardapios)) 
+	ccs = []
+	for p in cocs:
+		#print(','.join(map(lambda a: a.desc, p)))
+		ccs += p
+	passou = len(set([x for x in ccs if ccs.count(x) > 1])) == 0
+	
+	for card in cardapios:
+		if passou:
+			card.r10 = 1
+		else:
+			card.r10 = 0
+		card.save()
+
 def regras(c):
 	regra1(c)
 	regra7(c)
 	regra8(c)
+	regra10(c)
