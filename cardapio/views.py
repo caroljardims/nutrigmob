@@ -313,7 +313,7 @@ def vercardapio(request,id_dia_cardapio):
 	itens=0
 	if len(card) > 0:
 		item = card[0]
-		itens = item.r1 + item.r2 + item.r7 + item.r8 + item.r10
+		itens = item.r1 + item.r2 + item.r4 + item.r7 + item.r8 + item.r10
 	context = {'p_card':card,'c':c, 'item':item, 'nota':itens}
 	return render(request,"vercardapio.html",context)
 

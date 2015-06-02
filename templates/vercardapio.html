@@ -36,6 +36,14 @@
 
 					</ul> 
 					<ul> 
+						{% if item.r4 == 1 %}
+							<li>( + ) Não possui carne gordurosa.</li>
+						{% else %}
+							<li>( - ) Possui carne gordurosa.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
 						{% if item.r7 == 1 %}
 							<li>( + ) Não possui preparações ricas em sódio.</li>
 						{% else %}
@@ -56,14 +64,6 @@
 							<li>( + ) Não possui duplicidade de cocção.</li>
 						{% else %}
 							<li>( - ) Possui duplicidade de cocção.</li>
-						{% endif %}
-
-					</ul> 
-					<ul> 
-						{% if item.r4 == 1 %}
-							<li>Não possui carne gordurosa.</li>
-						{% else %}
-							<li>Possui carne gordurosa.</li>
 						{% endif %}
 
 					</ul> 
