@@ -80,7 +80,23 @@ def regra8(c):
 		card.r8 = passou
 		card.save()
 
+def regra4(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	possuiCarneGordurosa = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	possuiCarneGordurosa  = filter(lambda ca: "Carne Gordurosa" in ca, possuiCarneGordurosa)
+	passou = len(possuiCarneGordurosa) == 0
+	if passou:
+		passou = 1
+	else:
+		passou = 0
+	for card in cardapios:
+		card.r4 = passou
+		card.save()
+	print(passou)
+
 def regras(c):
 	regra1(c)
 	regra7(c)
+	regra4(c)
 	regra8(c)
+
