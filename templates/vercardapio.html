@@ -10,7 +10,7 @@
 			<a href="/prep_cardapio/{{ c.id }}"><button type="button" class="btn btn-info">Adicionar Preparações</button></a>
 			<br /><br />
 
-			<div class="thumbnail col-sm-4">
+			<div class="thumbnail col-sm-5">
 				<h3>Dia: {{ c.dia }}/{{ c.mes }}</h3>
 				{% if p_card %}
 					{% for p in p_card %}
@@ -36,10 +36,42 @@
 
 					</ul> 
 					<ul> 
+						{% if item.r3 == 1 %}
+							<li>( + ) Não possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
+						{% else %}
+							<li>( - ) Possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
 						{% if item.r4 == 1 %}
 							<li>( + ) Não possui carne gordurosa.</li>
 						{% else %}
 							<li>( - ) Possui carne gordurosa.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
+						{% if item.r5 == 1 %}
+							<li>( + ) Não possui doce.</li>
+						{% else %}
+							<li>( - ) Possui doce.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
+						{% if item.r6 == 1 %}
+							<li>( + ) Não possui fritura.</li>
+						{% else %}
+							<li>( - ) Possui fritura.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
+						{% if item.r9 == 1 %}
+							<li>( + ) Não possui frutas e saladas folhosas crus.</li>
+						{% else %}
+							<li>( - ) Possui frutas e saladas folhosas crus.</li>
 						{% endif %}
 
 					</ul> 
@@ -60,34 +92,10 @@
 
 					</ul> 
 					<ul> 
-						{% if item.r9 == 1 %}
-							<li>Não possui frutas e saladas folhosas crus.</li>
-						{% else %}
-							<li>Possui frutas e saladas folhosas crus.</li>
-						{% endif %}
-
-					</ul> 
-					<ul> 
 						{% if item.r10 == 1 %}
 							<li>( + ) Não possui duplicidade de cocção.</li>
 						{% else %}
 							<li>( - ) Possui duplicidade de cocção.</li>
-						{% endif %}
-
-					</ul> 
-					<ul> 
-						{% if item.r5 == 1 %}
-							<li>Não possui doce.</li>
-						{% else %}
-							<li>Possui doce.</li>
-						{% endif %}
-
-					</ul> 
-					<ul> 
-						{% if item.r6 == 1 %}
-							<li>Não possui fritura.</li>
-						{% else %}
-							<li>Possui fritura.</li>
 						{% endif %}
 
 					</ul> 

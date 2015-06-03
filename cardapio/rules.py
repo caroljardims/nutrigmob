@@ -65,10 +65,29 @@ def regra2(c):
 			card.r2 = 0
 		card.save()
 
-def regra3_1(c):
+def regra3(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
 	
 	prepals = map(lambda ca: map(lambda pa: pa.alimento, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	possuiCarneGordurosa = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	possuiCarneGordurosa  = filter(lambda ca: "Carne Gordurosa" in ca, possuiCarneGordurosa)
+	possuiDoce = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	possuiDoce  = filter(lambda ca: "Doce" in ca, possuiDoce)
+	possuiFritura = (map(lambda ca: ca.prep.coccao, cardapios)) 
+	possuiFritura  = filter(lambda ca: "Frito" in ca, possuiFritura)
+	
+	passou = None
+	if len(possuiCarneGordurosa) == 0 or len(possuiFritura) == 0:
+		passou = 1
+	elif len(possuiDoce) == 0:
+		passou = 0
+	else:
+		passou = 1
+		
+	for card in cardapios:
+		card.r3 = passou
+		card.save()
 
 def regra4(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
@@ -191,6 +210,7 @@ def regra10(c):
 def regras(c):
 	regra1(c)
 	regra2(c)
+	regra3(c)
 	regra7(c)
 	regra4(c)
 	regra5(c)
