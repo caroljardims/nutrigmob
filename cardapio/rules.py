@@ -182,9 +182,9 @@ def regra9(c):
 	folha = len(possuiFolha) == 0
 
 	if frutas or folha:
-		passou = 1
-	else:
 		passou = 0
+	else:
+		passou = 1
 	for card in cardapios:
 		card.r9 = passou
 		card.save()

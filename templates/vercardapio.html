@@ -68,14 +68,6 @@
 
 					</ul> 
 					<ul> 
-						{% if item.r9 == 1 %}
-							<li>( + ) Não possui frutas e saladas folhosas crus.</li>
-						{% else %}
-							<li>( - ) Possui frutas e saladas folhosas crus.</li>
-						{% endif %}
-
-					</ul> 
-					<ul> 
 						{% if item.r7 == 1 %}
 							<li>( + ) Não possui preparações ricas em sódio.</li>
 						{% else %}
@@ -88,6 +80,14 @@
 							<li>( + ) Não possui preparações sulfurosas.</li>
 						{% else %}
 							<li>( - ) Possui pelo menos uma preparação sulfurosa.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
+						{% if item.r9 == 1 %}
+							<li>( + ) Possui frutas e saladas folhosas crus.</li>
+						{% else %}
+							<li>( - ) Não possui frutas e saladas folhosas crus.</li>
 						{% endif %}
 
 					</ul> 
