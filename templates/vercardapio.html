@@ -60,6 +60,14 @@
 
 					</ul> 
 					<ul> 
+						{% if item.r9 == 1 %}
+							<li>Não possui frutas e saladas folhosas crus.</li>
+						{% else %}
+							<li>Possui frutas e saladas folhosas crus.</li>
+						{% endif %}
+
+					</ul> 
+					<ul> 
 						{% if item.r10 == 1 %}
 							<li>( + ) Não possui duplicidade de cocção.</li>
 						{% else %}
