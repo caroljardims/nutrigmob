@@ -6376,6 +6376,11 @@ button.close {
 .visible-lg-inline-block {
   display: none !important;
 }
+.green{color: #66d092;}
+.red{color: #ea5757;}
+.blue{color:#0088db;}
+.orange{color:#ff8100;}
+.gray{color:#656565;}
 @media (max-width: 767px) {
   .visible-xs {
     display: block !important;

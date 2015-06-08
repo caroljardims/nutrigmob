@@ -11,91 +11,93 @@
 			<br /><br />
 
 			<div class="thumbnail col-sm-5">
-				<h3>Dia: {{ c.dia }}/{{ c.mes }}</h3>
+				<h3 class="gray">Dia: {{ c.dia }}/{{ c.mes }}</h3>
 				{% if p_card %}
+				<ul>
 					{% for p in p_card %}
-						<br />- {{ p.prep.desc }}
+						<li class="gray"> {{ p.prep.desc }} </li>
 					{% endfor %}
+				</ul>
 				<div> 
 					<br />
-					<h4>Qualidade Nota: {{ nota }}/10 - {{ indicativo }} </h4>
+					<h4 class="gray">Qualidade Nota: {{ nota }}/10 - {{ indicativo }} </h4>
 					<ul> 
 						{% if item.r1 == 1 %}
-							<li>( + ) Não possui mais de um alimento repetido nas preparações.</li>
+							<li class="green">( + ) Não possui mais de um alimento repetido nas preparações.</li>
 						{% else %}
-							<li>( - ) Possui mais de um alimento repetido nas preparações.</li>
+							<li class="red">( - ) Possui mais de um alimento repetido nas preparações.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r2 == 1 %}
-							<li>( + ) Não possui mais de uma preparação com cores repetidas.</li>
+							<li class="green">( + ) Não possui mais de uma preparação com cores repetidas.</li>
 						{% else %}
-							<li>( - ) Possui mais de uma preparação com cores repetidas.</li>
+							<li class="red">( - ) Possui mais de uma preparação com cores repetidas.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r3 == 1 %}
-							<li>( + ) Não possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
+							<li class="green">( + ) Não possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
 						{% else %}
-							<li>( - ) Possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
+							<li class="red">( - ) Possui carne gordurosa ou fritura junto com doce no mesmo cardápio.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r4 == 1 %}
-							<li>( + ) Não possui carne gordurosa.</li>
+							<li class="green">( + ) Não possui carne gordurosa.</li>
 						{% else %}
-							<li>( - ) Possui carne gordurosa.</li>
+							<li class="red">( - ) Possui carne gordurosa.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r5 == 1 %}
-							<li>( + ) Não possui doce.</li>
+							<li class="green">( + ) Não possui doce.</li>
 						{% else %}
-							<li>( - ) Possui doce.</li>
+							<li class="red">( - ) Possui doce.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r6 == 1 %}
-							<li>( + ) Não possui fritura.</li>
+							<li class="green">( + ) Não possui fritura.</li>
 						{% else %}
-							<li>( - ) Possui fritura.</li>
+							<li class="red">( - ) Possui fritura.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r7 == 1 %}
-							<li>( + ) Não possui preparações ricas em sódio.</li>
+							<li class="green">( + ) Não possui preparações ricas em sódio.</li>
 						{% else %}
-							<li>( - ) Possui pelo menos uma preparação rica em sódio.</li>
+							<li class="red">( - ) Possui pelo menos uma preparação rica em sódio.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r8 == 1 %}
-							<li>( + ) Não possui preparações sulfurosas.</li>
+							<li class="green">( + ) Não possui preparações sulfurosas.</li>
 						{% else %}
-							<li>( - ) Possui pelo menos uma preparação sulfurosa.</li>
+							<li class="red">( - ) Possui pelo menos uma preparação sulfurosa.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r9 == 1 %}
-							<li>( + ) Possui frutas ou/e saladas folhosas cruas.</li>
+							<li class="green">( + ) Possui frutas ou/e saladas folhosas cruas.</li>
 						{% else %}
-							<li>( - ) Não possui frutas ou saladas folhosas cruas.</li>
+							<li class="red">( - ) Não possui frutas ou saladas folhosas cruas.</li>
 						{% endif %}
 
 					</ul> 
 					<ul> 
 						{% if item.r10 == 1 %}
-							<li>( + ) Não possui duplicidade de cocção.</li>
+							<li class="green">( + ) Não possui duplicidade de cocção.</li>
 						{% else %}
-							<li>( - ) Possui duplicidade de cocção.</li>
+							<li class="red">( - ) Possui duplicidade de cocção.</li>
 						{% endif %}
 
 					</ul> 
