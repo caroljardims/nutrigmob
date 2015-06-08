@@ -308,10 +308,19 @@ def vercardapio(request,id_dia_cardapio):
 		regras(i)
 	item=None
 	itens=0
+	indicativo = None
 	if len(card) > 0:
 		item = card[0]
 		itens = item.r1 + item.r2 + item.r3 + item.r4 + item.r5 + item.r6 + item.r7 + item.r8 + item.r9 + item.r10
-	context = {'p_card':card,'c':c, 'item':item, 'nota':itens}
+		if itens<5:
+			indicativo = "Muito Insatisfatório"
+		elif itens<6:
+			indicativo = "Insatisfatório"
+		elif itens<8:
+			indicativo = "Satisfatório"
+		else:
+			indicativo = "Muito Satisfatório"
+	context = {'p_card':card,'c':c, 'item':item, 'nota':itens, 'indicativo':indicativo}
 	return render(request,"vercardapio.html",context)
 
 
