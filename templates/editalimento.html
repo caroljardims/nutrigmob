@@ -22,7 +22,18 @@
 		</div>
 		<div class="form-group">
 			<label>Cor</label>
-			<input type="color" name="cor" value="{{ al.cor }}">
+			<select type="text" name="cor">
+				<option value="1"> Branco </option>
+				<option value="2"> Preto </option>
+				<option value="3"> Vermelho </option>
+				<option value="4"> Laranja </option>
+				<option value="5"> Amarelo </option>
+				<option value="6"> Verde Escuro </option>
+				<option value="7"> Verde Claro </option>
+				<option value="8"> Roxo </option>
+				<option value="9"> Pardo </option>
+				<option value="10"> Marrom </option>
+			</select>
 		</div>
 	  <button type="submit" class="btn btn-info" value="Editar">Editar</button>
 	  <a href="/deletealimento/{{ al.id }}"><button type="button" class="btn btn-danger">Deletar</button></a>
