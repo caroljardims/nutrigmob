@@ -368,6 +368,7 @@ def prep_cardapio(request,id_dia_cardapio):
 	if request.method == 'POST' and 'add' in request.POST:
 		f_prep = request.POST.get('prep')
 		card = Cardapio_Prep(prep_id=f_prep,dia_id=id_dia_cardapio,r1=0,r2=0,r3=0,r4=0,r5=0,r6=0,r7=0,r8=0,r9=0,r10=0)
+		regras(card)
 		card.save()
 		return redirect('/prep_cardapio/' + id_dia_cardapio)
 
