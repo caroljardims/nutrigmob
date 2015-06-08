@@ -2,6 +2,7 @@ from django.contrib import admin
 from cardapio.models import *
 # Register your models here.
 
+admin.site.register(Cores)
 admin.site.register(Aux)
 admin.site.register(Alimentos)
 admin.site.register(Prepara)

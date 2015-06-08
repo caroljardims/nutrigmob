@@ -149,6 +149,34 @@ def regra8(c):
 		card.r8 = passou
 		card.save()
 
+
+def regra9(c):
+	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
+	possuiFruta = map(lambda ca: map(lambda pa: pa.alimento.cat_alimento.desc, Prep_Alimentos.objects.filter(prep__id=ca.prep.id)), cardapios)
+	possuiFruta  = filter(lambda ca: "Fruta" in ca, possuiFruta)
+	frutas = len(possuiFruta) == 0
+
+	
+	possuiFolha = map(lambda ca: map(lambda pa: Aux.objects.get(id=pa.alimento.cat_alimento.id), Prep_Alimentos.objects.filter(prep__id=ca.prep.id,prep__coccao="Sem cocção")), cardapios)
+
+	ax = []
+	for p in possuiFolha:
+		ax += p
+	possuiFolha = ax
+	possuiFolha  = filter(lambda ca: "Salada Folhosa" in ca.desc, possuiFolha)
+	#possuiFolha = filter(lambda ca: ca.prep.coccao, possuiFolha)
+	#possuiFolha = filter(lambda ca: "Sem cocção" in ca, possuiFolha)
+	folha = len(possuiFolha) == 0
+
+	if frutas or folha:
+		passou = 0
+	else:
+		passou = 1
+	for card in cardapios:
+		card.r9 = passou
+		card.save()
+
+
 def regra10(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
 	
@@ -175,4 +203,5 @@ def regras(c):
 	regra5(c)
 	regra6(c)
 	regra8(c)
+	regra9(c)
 	regra10(c)
