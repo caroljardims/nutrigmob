@@ -1,5 +1,10 @@
 from django.db import models
 
+class Cores(models.Model):
+	nome = models.CharField(max_length=20)
+	def __unicode__(self):
+		return self.nome
+
 # Create your models here.
 class Aux(models.Model):
 	tipo = models.IntegerField(1)
