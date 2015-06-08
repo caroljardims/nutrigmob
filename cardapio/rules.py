@@ -21,13 +21,6 @@ from cardapio.models import *
     #            #
     ##############
 
-"""
-
- Regra 1: Alimentos repetidos
- > Contar em grupo os Alimentos.
- > Se contador > 1, então FALSE 
-
- """
 
 def regra1(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
@@ -84,7 +77,7 @@ def regra3(c):
 		passou = 0
 	else:
 		passou = 1
-		
+
 	for card in cardapios:
 		card.r3 = passou
 		card.save()
@@ -129,12 +122,6 @@ def regra6(c):
 		card.r6 = passou
 		card.save()
 
-"""
-
- Regra 7: Preparação rica em sódio
- > Verificar se preparação é rica em sódio
-
- """
 
 def regra7(c):
 	cardapios = Cardapio_Prep.objects.filter(dia__id=c.dia.id)
