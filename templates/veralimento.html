@@ -12,7 +12,19 @@
 			<div class="thumbnail col-sm-4">
 				<h3>{{ al.desc }}</h3>
 				<p>Categoria: {{ al.cat_alimento }}</p>
-				<p>Cor: {{ al.cor }}</p>
+				<p>Cor: 
+					{% if al.cor == "1" %} Branco
+					{% elif al.cor == "2" %} Preto
+					{% elif al.cor == "3" %} Vermelho
+					{% elif al.cor == "4" %} Laranja
+					{% elif al.cor == "5" %} Amarelo
+					{% elif al.cor == "6" %} Verde Escuro
+					{% elif al.cor == "7" %} Verde Claro
+					{% elif al.cor == "8" %} Roxo
+					{% elif al.cor == "9" %} Pardo
+					{% else %} Marrom
+					{% endif %}
+				</p>
 			</div>
 
 </div>

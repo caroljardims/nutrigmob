@@ -31,7 +31,20 @@
 				{% else %}
 				Não
 				{% endif %}</p>
-				<p><label>Cor: </label> {{ p.cor }}</p>
+				<p><label>Cor: </label> 
+					{% if p.cor == 1 %} Branco
+					{% elif p.cor == 2 %} Preto
+					{% elif p.cor == 3 %} Vermelho
+					{% elif p.cor == 4 %} Laranja
+					{% elif p.cor == 5 %} Amarelo
+					{% elif p.cor == 6 %} Verde Escuro
+					{% elif p.cor == 7 %} Verde Claro
+					{% elif p.cor == 8 %} Roxo
+					{% elif p.cor == 9 %} Pardo
+					{% else %} Marrom
+					{% endif %}
+
+				</p>
 
 				{% if lista %}
 				<p><label>Alimentos: </label>

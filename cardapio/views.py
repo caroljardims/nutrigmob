@@ -138,7 +138,7 @@ def editalimento(request, id_alimentos):
 		if f_desc: al.desc = f_desc
 		if f_cor: al.cor = f_cor
 		al.save()
-		return redirect('/alimentos')
+		return redirect('/veralimento/'+id_alimentos)
 	context = {'form': form, 'aux_list':aux_list, 'al':al}
 	return render(request,"editalimento.html", context)
 
@@ -220,7 +220,7 @@ def editprepara(request, id_prepara):
 		if f_desc: al.desc = f_desc
 		if f_cor: al.cor = f_cor
 		al.save()
-		return redirect('/prepara')
+		return redirect('/verprepara/'+id_prepara)
 	context = {'form': form, 'aux_list':aux_list, 'al':al}
 	return render(request,"editprepara.html", context)
 
